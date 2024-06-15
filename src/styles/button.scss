@@ -1,0 +1,19 @@
+.button{
+    padding: 13.5px 0;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.white{
+    border: 1px solid rgb(000, 000, 000);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.black{
+    border: 1px solid rgb(000, 000, 000);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}

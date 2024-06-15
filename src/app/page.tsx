@@ -1,95 +1,84 @@
+import "@/styles/homepage.scss";
+import "@/styles/globals.css";
 import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+import Icon from "@/components/ui/Icon";
+import Searchbar from "@/features/common/searchbar/Searchbar";
+import JobCard from "@/components/ui/JobCard";
+import Button from "@/components/ui/Button";
 
-export default function Home() {
+const main = () => {
+  const headerIconSize = 40,
+    aboutmeIconSize = 100;
+  const shrttButtonSize = 160,longButtonSize = 240;
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <header className="header">
+        <div className="header__icon">
+          <Icon size={headerIconSize} imgURL="/iconImg.jpg" />
+        </div>
+        <div className="header__name">
+          <p>Japanese Ceramic Artist</p>
+        </div>
+        <nav className="header__nav">
+          <ul className="header__ul">
+            <li>
+              <Link href="/" className="header__li--link">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/products" className="header__li--link">
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link href="/gallery" className="header__li--link">
+                Gallery
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="header__li--link">
+                About
+              </Link>
+            </li>
+          </ul>
+          <Searchbar />
+        </nav>
+      </header>
+      <div className="aboutme">
+        <div className="aboutme__icon">
+          <Icon size={aboutmeIconSize} imgURL="/iconImg.jpg" />
+        </div>
+        <div className="aboutme__info">
+          <p className="aboutme__info--name">Miyagoshi Sota</p>
+          <JobCard text="Master Ceramic Artist" />
+          <p className="aboutme__info--description">
+            Creating timeless ceramic pieces inspired by nature.
+          </p>
+        </div>
+        <div className="aboutme__buttons">
+          <Button text="Contact" width={shrttButtonSize} color="white" />
+          <Button
+            text="View Portfolio"
+            width={shrttButtonSize}
+            color="black"
+          />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+			<div className="featuredProducts">
+				<div className="featuredProducts__info">
+					<div>
+						<p>Featured Products</p>
+						<p>Explore our exquisite collection of handcrafted ceramics.</p>
+						<Button text="Contact" width={longButtonSize} color="white" />
+					</div>
+				</div>
+				<div className="featuredProducts__posts"></div>
+			</div>
     </main>
   );
-}
+};
+
+export default main;
